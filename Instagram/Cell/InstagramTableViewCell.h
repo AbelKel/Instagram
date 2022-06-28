@@ -6,12 +6,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface InstagramTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 @property (weak, nonatomic) IBOutlet UILabel *postComment;
+@property (strong, nonatomic) PFUser *user;
 
 @end
 

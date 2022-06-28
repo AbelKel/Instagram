@@ -6,6 +6,7 @@
 //
 
 #import "InstagramTableViewCell.h"
+#import "LoginViewController.h"
 
 @implementation InstagramTableViewCell
 

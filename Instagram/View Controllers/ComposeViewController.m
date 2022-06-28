@@ -37,6 +37,7 @@
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    [self.imageToShare setImage:editedImage];
 
     // Do something with the images (based on your use case)
     
