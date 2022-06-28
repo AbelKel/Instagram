@@ -6,8 +6,10 @@
 //
 
 #import "ComposeViewController.h"
+#import "Post.h"
+#import <Parse/Parse.h>
 
-@interface ComposeViewController ()<UITableViewDelegate>
+@interface ComposeViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -15,12 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    
+
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
 
-    // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
@@ -44,5 +47,18 @@
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)sharePost:(id)sender {
+    if (self.imageToShare.image && self.noteToPost.text) {
+           [Post postUserImage:self.imageToShare.image withCaption:self.noteToPost.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+               NSLog(@"Image posted Successfully!");
+               [self dismissViewControllerAnimated:YES completion:nil];
+           }];
+       } else {
+           NSLog(@"Missing an image and/or caption!");  
+       }
+    
+}
+
 
 @end

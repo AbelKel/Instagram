@@ -31,6 +31,7 @@
             NSLog(@"User log in failed: %@", error.localizedDescription);
         } else {
             NSLog(@"User logged in successfully");
+            [self performSegueToHome];
         }
     }];
 }
@@ -45,7 +46,7 @@
 
 - (IBAction)segueToHome:(id)sender {
     [self loginUser];
-    [self performSegueToHome];
+    
 }
 
 - (void)performSegueToHome {

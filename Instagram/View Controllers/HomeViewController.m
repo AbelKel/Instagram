@@ -10,10 +10,12 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "InstagramTableViewCell.h"
+#import "Post.h"
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *foundPosts;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -24,15 +26,40 @@
     
     self.tableView.delegate= self;
     self.tableView.dataSource = self;
-    
+    [self getPosts];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+
+}
+
+//- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+//        NSURL *url =
+//        NSURL *request =
+//        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+//                                                              delegate:nil
+//                                                         delegateQueue:[NSOperationQueue mainQueue]];
+//        session.configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+//        NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+//                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+//            [self.tableView reloadData];
+//            [refreshControl endRefreshing];
+//
+//        }];
+//
+//        [task resume];
+//}
+
+-(void)getPosts{
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    [query whereKey:@"likesCount" greaterThan:@0];
+//    [query whereKey:@"likesCount" greaterThan:@0];
     query.limit = 20;
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            NSLog(@"%@", self.foundPosts);
             self.foundPosts = posts;
+            [self.tableView reloadData];
+            NSLog(@"%@", self.foundPosts);
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
@@ -41,11 +68,7 @@
 
 - (IBAction)didTapLogout:(id)sender {
     NSLog(@"Works");
-//    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-
-    
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        // PFUser.current() will now be nil
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
         self.view.window.rootViewController = loginViewController;
@@ -63,14 +86,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     InstagramTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeCell" forIndexPath:indexPath];
-//    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell" forIndexPath:indexPath];
-//    cell.user = self.chatMessages[indexPath.row];
-//    cell.messageContent.text = self.chatMessages[indexPath.row][@"text"];
-    //cell.postImage = self.foundPosts[indexPath.row];
-    cell.postComment = self.foundPosts[indexPath.row][@"text"];
-
+    Post *postIG = self.foundPosts[indexPath.row];
+    cell.postComment.text = postIG.caption;
+    cell.photoImageView.file = self.foundPosts[indexPath.row][@"image"];
+    [cell.photoImageView loadInBackground];
     return cell;
-    
 }
 
 
