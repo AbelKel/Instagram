@@ -12,15 +12,19 @@
 #import "InstagramTableViewCell.h"
 #import "Post.h"
 #import "DetailsViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *foundPosts;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (assign, nonatomic) BOOL isMoreDataLoading;
 
 @end
 
 @implementation HomeViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,15 +39,15 @@
 }
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
-            [self.tableView reloadData];
-            [self getPosts];
-            [refreshControl endRefreshing];
+    [self getPosts];
+    [self.tableView reloadData];
+    [refreshControl endRefreshing];
 }
 
 -(void)getPosts{
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
 //    [query whereKey:@"likesCount" greaterThan:@0];
-    query.limit = 20;
+    //query.limit = 20;
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
@@ -54,6 +58,12 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
+-(void)loadMoreData{
+    [self getPosts];
+    self.isMoreDataLoading = false;
+    [self.tableView reloadData];
 }
 
 - (IBAction)didTapLogout:(id)sender {
@@ -67,6 +77,17 @@
 
 - (IBAction)tapCompose:(id)sender {
     [self performSegueWithIdentifier:@"showCompose" sender:self];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(!self.isMoreDataLoading){
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            self.isMoreDataLoading = true;
+            [self loadMoreData];
+        }
+    }
 }
 
 
@@ -83,11 +104,6 @@
     return cell;
 }
 
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if(indexPath.row + 1 == [self.foundPosts count]){
-//        [self loadMoreData:[self.foundPosts count] + 20];
-//    }
-//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"detailsSegue"]) {

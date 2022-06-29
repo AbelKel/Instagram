@@ -168,6 +168,7 @@
 		D96383F7286A41D70044603B /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				D9EC2327286C9CD6001CE46F /* Models */,
 				D9ED4050286A7C3F0054876B /* Cell */,
 				D9ED404F286A7C1C0054876B /* View Controllers */,
 				D96383F8286A41D70044603B /* AppDelegate.h */,
@@ -181,8 +182,6 @@
 				D9638406286A41D80044603B /* LaunchScreen.storyboard */,
 				D9638409286A41D80044603B /* Info.plist */,
 				D963840A286A41D80044603B /* main.m */,
-				D9ED404C286A7BD60054876B /* Post.h */,
-				D9ED404D286A7BD60054876B /* Post.m */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -202,6 +201,15 @@
 				D9638420286A41D80044603B /* InstagramUITestsLaunchTests.m */,
 			);
 			path = InstagramUITests;
+			sourceTree = "<group>";
+		};
+		D9EC2327286C9CD6001CE46F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D9ED404C286A7BD60054876B /* Post.h */,
+				D9ED404D286A7BD60054876B /* Post.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		D9ED404F286A7C1C0054876B /* View Controllers */ = {
