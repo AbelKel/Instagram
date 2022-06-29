@@ -6,6 +6,7 @@
 //
 
 #import "DetailsViewController.h"
+#import <parse/Parse.h>
 
 @interface DetailsViewController ()
 
@@ -15,8 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.detailsCaption.text = self.post.caption;
+    self.detailsImage.file = self.post.image;
+    [self.detailsImage loadInBackground];
 }
+
+//-(int) createdAt {
+
+//}
 
 /*
 #pragma mark - Navigation

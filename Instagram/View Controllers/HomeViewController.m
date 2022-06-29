@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "InstagramTableViewCell.h"
 #import "Post.h"
+#import "DetailsViewController.h"
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -33,22 +34,11 @@
 
 }
 
-//- (void)beginRefresh:(UIRefreshControl *)refreshControl {
-//        NSURL *url =
-//        NSURL *request =
-//        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-//                                                              delegate:nil
-//                                                         delegateQueue:[NSOperationQueue mainQueue]];
-//        session.configuration.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-//        NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-//                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//            [self.tableView reloadData];
-//            [refreshControl endRefreshing];
-//
-//        }];
-//
-//        [task resume];
-//}
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+            [self.tableView reloadData];
+            [self getPosts];
+            [refreshControl endRefreshing];
+}
 
 -(void)getPosts{
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
@@ -91,6 +81,23 @@
     cell.photoImageView.file = self.foundPosts[indexPath.row][@"image"];
     [cell.photoImageView loadInBackground];
     return cell;
+}
+
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if(indexPath.row + 1 == [self.foundPosts count]){
+//        [self loadMoreData:[self.foundPosts count] + 20];
+//    }
+//}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:@"detailsSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        DetailsViewController *detailsViewController = (DetailsViewController*)navigationController.topViewController;
+        UITableViewCell *cell = sender;
+        NSIndexPath *indexpath = [self.tableView indexPathForCell:cell];
+        Post *post = self.foundPosts[indexpath.row];
+        detailsViewController.post = post;
+    }
 }
 
 
