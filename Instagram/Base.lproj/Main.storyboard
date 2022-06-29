@@ -396,21 +396,21 @@
                                 <rect key="frame" x="20" y="128" width="374" height="309"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="309" id="hGI-Xo-qnN"/>
+                                    <constraint firstAttribute="height" constant="309" id="MF3-wO-f0I"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createdAt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ty-8g-vQ5">
-                                <rect key="frame" x="307" y="99" width="75" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="2sV-Ac-CgM"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="post title is going to be here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9n-cH-zt6">
+                                <rect key="frame" x="20" y="457" width="261" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="post title is going to be here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9n-cH-zt6">
-                                <rect key="frame" x="20" y="457" width="261" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cretedAtThisTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ty-8g-vQ5">
+                                <rect key="frame" x="316" y="99" width="78" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rgq-xn-RkB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -418,18 +418,31 @@
                         <viewLayoutGuide key="safeArea" id="KhO-im-EE2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5Ty-8g-vQ5" firstAttribute="leading" secondItem="KhO-im-EE2" secondAttribute="leading" constant="307" id="4SN-pP-hsy"/>
-                            <constraint firstItem="a9n-cH-zt6" firstAttribute="top" secondItem="nWQ-fB-QPU" secondAttribute="bottom" constant="20" id="7jy-7D-79C"/>
-                            <constraint firstItem="KhO-im-EE2" firstAttribute="trailing" secondItem="a9n-cH-zt6" secondAttribute="trailing" constant="133" id="DnP-KO-MbM"/>
-                            <constraint firstItem="nWQ-fB-QPU" firstAttribute="top" secondItem="5Ty-8g-vQ5" secondAttribute="bottom" constant="8" symbolic="YES" id="GCT-f4-TWB"/>
-                            <constraint firstItem="5Ty-8g-vQ5" firstAttribute="top" secondItem="KhO-im-EE2" secondAttribute="top" constant="43" id="QFd-YT-Lye"/>
-                            <constraint firstItem="nWQ-fB-QPU" firstAttribute="leading" secondItem="a9n-cH-zt6" secondAttribute="leading" id="dTI-mU-2dC"/>
-                            <constraint firstItem="KhO-im-EE2" firstAttribute="bottom" secondItem="a9n-cH-zt6" secondAttribute="bottom" constant="281" id="j5B-hM-Jtq"/>
-                            <constraint firstItem="nWQ-fB-QPU" firstAttribute="trailing" secondItem="L5P-zo-bic" secondAttribute="trailingMargin" id="mU7-Gj-Hxt"/>
-                            <constraint firstItem="nWQ-fB-QPU" firstAttribute="leading" secondItem="L5P-zo-bic" secondAttribute="leadingMargin" id="wZT-qH-R5f"/>
+                            <constraint firstItem="5Ty-8g-vQ5" firstAttribute="trailing" secondItem="L5P-zo-bic" secondAttribute="trailingMargin" id="0mL-1n-LkF"/>
+                            <constraint firstItem="nWQ-fB-QPU" firstAttribute="leading" secondItem="L5P-zo-bic" secondAttribute="leadingMargin" id="R7R-gK-rpT"/>
+                            <constraint firstItem="KhO-im-EE2" firstAttribute="bottom" secondItem="a9n-cH-zt6" secondAttribute="bottom" constant="281" id="aDo-rM-Is2"/>
+                            <constraint firstItem="5Ty-8g-vQ5" firstAttribute="leading" secondItem="KhO-im-EE2" secondAttribute="leading" constant="316" id="cZR-Et-vgx"/>
+                            <constraint firstItem="nWQ-fB-QPU" firstAttribute="leading" secondItem="a9n-cH-zt6" secondAttribute="leading" id="eKt-iW-g2v"/>
+                            <constraint firstItem="5Ty-8g-vQ5" firstAttribute="top" secondItem="KhO-im-EE2" secondAttribute="top" constant="43" id="el8-lj-AK0"/>
+                            <constraint firstItem="a9n-cH-zt6" firstAttribute="top" secondItem="nWQ-fB-QPU" secondAttribute="bottom" constant="20" id="lUi-Zj-HFG"/>
+                            <constraint firstItem="nWQ-fB-QPU" firstAttribute="top" secondItem="5Ty-8g-vQ5" secondAttribute="bottom" constant="8" symbolic="YES" id="m6p-HV-r3x"/>
+                            <constraint firstItem="5Ty-8g-vQ5" firstAttribute="trailing" secondItem="nWQ-fB-QPU" secondAttribute="trailing" id="ws5-Xj-nrE"/>
+                            <constraint firstItem="KhO-im-EE2" firstAttribute="trailing" secondItem="a9n-cH-zt6" secondAttribute="trailing" constant="133" id="yQb-kd-tHv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="kpC-GM-Yyf"/>
+                    <navigationItem key="navigationItem" id="kpC-GM-Yyf">
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="FGq-JZ-4Q9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ona-Ys-Nsg">
+                                <rect key="frame" x="20" y="17" width="75" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button" image="arrowshape.turn.up.left.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="backButtonDetails:" destination="O61-Gn-WUF" eventType="touchUpInside" id="Xch-ep-cn9"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailsCaption" destination="a9n-cH-zt6" id="TA8-2Z-M22"/>
                         <outlet property="detailsCreatedAt" destination="5Ty-8g-vQ5" id="T9Z-fb-5mA"/>
@@ -541,6 +554,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="camera.viewfinder" catalog="system" width="128" height="115"/>
         <image name="feed_tab" width="25" height="25"/>
         <image name="folder.fill" catalog="system" width="128" height="97"/>

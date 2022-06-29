@@ -17,16 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" misplaced="YES" image="insta_camera_btn" translatesAutoresizingMaskIntoConstraints="NO" id="w9H-KY-9KC">
-                                <rect key="frame" x="134" y="308" width="147" height="229"/>
+                                <rect key="frame" x="164" y="403" width="86" height="91"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="w9H-KY-9KC" secondAttribute="bottom" constant="325" id="0aY-wP-SA5"/>
-                            <constraint firstItem="w9H-KY-9KC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="AaG-6K-84p"/>
-                            <constraint firstItem="w9H-KY-9KC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="ngE-k2-7E7"/>
-                            <constraint firstItem="w9H-KY-9KC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="264" id="tzl-4q-FAn"/>
+                            <constraint firstItem="w9H-KY-9KC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="164" id="54R-Lz-au8"/>
+                            <constraint firstItem="w9H-KY-9KC" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ZPf-ga-AEj"/>
+                            <constraint firstItem="w9H-KY-9KC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xM2-Tr-KgZ"/>
+                            <constraint firstItem="w9H-KY-9KC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="359" id="xqA-AH-a31"/>
                         </constraints>
                     </view>
                 </viewController>
