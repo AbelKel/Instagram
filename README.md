@@ -1,13 +1,22 @@
+<<<<<<< HEAD
 # Project 3 - *Name of App Here*
 
 **Name of your app** is a photo sharing app using Parse as its backend.
 
 Time spent: **X** hours spent in total
+=======
+# Project 3 - *Instagram*
+
+**Instagram** is a photo sharing app using Parse as its backend.
+
+Time spent: **30** hours spent in total
+>>>>>>> 5951b135484ff1ac9c4be3ce71f6c474abf0751e
 
 ## User Stories
 
 The following **required** functionality is completed:
 
+<<<<<<< HEAD
 - [ ] User can sign up to create a new account using Parse authentication
 - [ ] User can log in and log out of his or her account
 - [ ] The current signed in user is persisted across app restarts
@@ -22,6 +31,22 @@ The following **optional** features are implemented:
 - [ ] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling
 - [ ] Show the username and creation time for each post
 - [ ] User can use a Tab Bar to switch between a Home Feed tab (all posts) and a Profile tab (only posts published by the current user)
+=======
+- [X] User can sign up to create a new account using Parse authentication
+- [X] User can log in and log out of his or her account
+- [X] The current signed in user is persisted across app restarts
+- [X] User can take a photo, add a caption, and post it to "Instagram"
+- [X] User can view the last 20 posts submitted to "Instagram"
+- [X] User can pull to refresh the last 20 posts submitted to "Instagram"
+- [X] User can tap a post to view post details, including timestamp and caption
+
+The following **optional** features are implemented:
+
+- [X] Run your app on your phone and use the camera to take the photo
+- [X] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling
+- [X] Show the username and creation time for each post
+- [X] User can use a Tab Bar to switch between a Home Feed tab (all posts) and a Profile tab (only posts published by the current user)
+>>>>>>> 5951b135484ff1ac9c4be3ce71f6c474abf0751e
 - User Profiles:
   - [ ] Allow the logged in user to add a profile photo
   - [ ] Display the profile photo with each post
@@ -75,4 +100,7 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+<<<<<<< HEAD
     
+=======
+>>>>>>> 5951b135484ff1ac9c4be3ce71f6c474abf0751e
