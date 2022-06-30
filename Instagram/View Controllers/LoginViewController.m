@@ -12,14 +12,12 @@
 
 @interface LoginViewController ()
 
-
 @end
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)loginUser {
@@ -28,9 +26,13 @@
     
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
-            NSLog(@"User log in failed: %@", error.localizedDescription);
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid credetials" message:@"Please fill in correct username and password" preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action){}];
+            [alert addAction:cancelAction];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){}];
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:nil];
         } else {
-            NSLog(@"User logged in successfully");
             [self performSegueToHome];
         }
     }];
@@ -40,13 +42,13 @@
     [self performSegueToReg];
 }
 
-- (void)performSegueToReg {
-    [self performSegueWithIdentifier:@"regSegue" sender:self];
-}
 
 - (IBAction)segueToHome:(id)sender {
     [self loginUser];
-    
+}
+
+- (void)performSegueToReg {
+    [self performSegueWithIdentifier:@"regSegue" sender:self];
 }
 
 - (void)performSegueToHome {

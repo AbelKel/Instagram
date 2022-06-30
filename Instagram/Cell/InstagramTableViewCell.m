@@ -12,13 +12,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 
@@ -26,6 +23,13 @@
     _post = post;
     self.photoImageView.file = post[@"image"];
     [self.photoImageView loadInBackground];
+    self.postComment.text = _post.caption;
+    NSDate *postDate = self.post.createdAt;
+    NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init];
+    formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;
+    formatter.allowedUnits = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour;
+    NSString *elapsed = [formatter stringFromDate:postDate toDate:[NSDate date]];
+    self.postDateStamp.text = elapsed;
 }
 
 

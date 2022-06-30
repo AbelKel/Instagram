@@ -36,7 +36,7 @@
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
-     if (!image) {
+    if (!image) {
         return nil;
     }
     NSData *imageData = UIImagePNGRepresentation(image);

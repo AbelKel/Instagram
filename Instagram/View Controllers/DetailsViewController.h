@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : ViewController
 @property (strong, nonatomic) Post *post;
-//@property (weak, nonatomic) IBOutlet UIImageView *detailsImage;
 @property (weak, nonatomic) IBOutlet UILabel *detailsCreatedAt;
 @property (weak, nonatomic) IBOutlet UILabel *detailsCaption;
 @property (weak, nonatomic) IBOutlet PFImageView *detailsImage;
