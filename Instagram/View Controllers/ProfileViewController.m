@@ -72,11 +72,21 @@ static NSString * const reuseIdentifier = @"Cell";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void) setUser {
+-(void)setUser {
     PFUser *username = [PFUser currentUser];
     self.profileName.text = username.username;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([[segue identifier] isEqualToString:@"collectionDetails"]) {
+       UINavigationController *navigationController = [segue destinationViewController];
+        ProfileViewController *collectionViewController = (ProfileViewController*)navigationController.topViewController;
+        UICollectionViewCell *cell = sender;
+        NSIndexPath *indexpath = [self.collectionView indexPathForCell:cell];
+        Post *post = self.photosInProfile[indexpath.row];
+        collectionViewController.post = post;
+    }
+}
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     self.flowLayout.minimumLineSpacing = 0;

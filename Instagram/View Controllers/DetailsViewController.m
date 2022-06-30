@@ -20,11 +20,11 @@
     self.detailsCaption.text = self.post.caption;
     self.detailsImage.file = self.post.image;
     [self.detailsImage loadInBackground];
-    NSDate *tweetDate = self.post.createdAt;
+    NSDate *postDate = self.post.createdAt;
     NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init];
     formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;
     formatter.allowedUnits = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour;
-    NSString *elapsed = [formatter stringFromDate:tweetDate toDate:[NSDate date]];
+    NSString *elapsed = [formatter stringFromDate:postDate toDate:[NSDate date]];
     self.detailsCreatedAt.text = elapsed;
 }
 

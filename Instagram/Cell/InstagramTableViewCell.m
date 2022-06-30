@@ -23,7 +23,8 @@
     _post = post;
     self.photoImageView.file = post[@"image"];
     [self.photoImageView loadInBackground];
-    self.postComment.text = _post.caption;
+    self.postComment.text = self.post.caption;
+    self.timelineName.text = self.post.author.username;
     NSDate *postDate = self.post.createdAt;
     NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init];
     formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;

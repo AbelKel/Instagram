@@ -44,7 +44,6 @@
 - (IBAction)sharePost:(id)sender {
     if (self.imageToShare.image && self.noteToPost.text) {
            [Post postUserImage:self.imageToShare.image withCaption:self.noteToPost.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-               NSLog(@"Image posted Successfully!");
                [self dismissViewControllerAnimated:YES completion:nil];
            }];
        } else {

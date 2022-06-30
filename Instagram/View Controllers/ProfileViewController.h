@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ProfileViewController : UIViewController < UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *profileName;
 @property (weak, nonatomic) IBOutlet PFImageView *profilePictureInCollection;
-
+@property (strong, nonatomic) Post *post;
 @end
 
 NS_ASSUME_NONNULL_END
