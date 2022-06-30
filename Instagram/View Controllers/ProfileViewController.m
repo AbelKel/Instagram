@@ -33,7 +33,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 }
 
--(void)getPostsCollections{
+-(void)getPostsCollections {
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
